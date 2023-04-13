@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/operation-mystery-box/static/css/main.e6c13ad2.css",
+    "main.js": "/operation-mystery-box/static/js/main.8af3291c.js",
+    "static/js/787.6e09586f.chunk.js": "/operation-mystery-box/static/js/787.6e09586f.chunk.js",
+    "static/media/Allan-Bold.ttf": "/operation-mystery-box/static/media/Allan-Bold.8aab5500b8a9219d1eb6.ttf",
+    "index.html": "/operation-mystery-box/index.html",
+    "main.e6c13ad2.css.map": "/operation-mystery-box/static/css/main.e6c13ad2.css.map",
+    "main.8af3291c.js.map": "/operation-mystery-box/static/js/main.8af3291c.js.map",
+    "787.6e09586f.chunk.js.map": "/operation-mystery-box/static/js/787.6e09586f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.8af3291c.js"
+  ]
+}
