@@ -1,16 +1,23 @@
 {
   "files": {
-    "main.css": "/operation-mystery-box/static/css/main.e6c13ad2.css",
-    "main.js": "/operation-mystery-box/static/js/main.8af3291c.js",
-    "static/js/787.6e09586f.chunk.js": "/operation-mystery-box/static/js/787.6e09586f.chunk.js",
-    "static/media/Allan-Bold.ttf": "/operation-mystery-box/static/media/Allan-Bold.8aab5500b8a9219d1eb6.ttf",
-    "index.html": "/operation-mystery-box/index.html",
-    "main.e6c13ad2.css.map": "/operation-mystery-box/static/css/main.e6c13ad2.css.map",
-    "main.8af3291c.js.map": "/operation-mystery-box/static/js/main.8af3291c.js.map",
-    "787.6e09586f.chunk.js.map": "/operation-mystery-box/static/js/787.6e09586f.chunk.js.map"
+    "main.css": "/static/css/main.bab1cc96.css",
+    "main.js": "/static/js/main.a3ebaca5.js",
+    "static/js/787.1c2056ff.chunk.js": "/static/js/787.1c2056ff.chunk.js",
+    "static/media/BOX1.gif": "/static/media/BOX1.30de4960ad5d322878e0.gif",
+    "static/media/BOX1-OPT.gif": "/static/media/BOX1-OPT.bafcf96dea315e29b9b8.gif",
+    "static/media/BOX3.png": "/static/media/BOX3.f63fa67a393babf3d937.png",
+    "static/media/BOX6.png": "/static/media/BOX6.77b510bcdd3ba439887e.png",
+    "static/media/BOX2.png": "/static/media/BOX2.0becde0e220df0298031.png",
+    "static/media/BOX1.png": "/static/media/BOX1.bb2126370f9750ae761f.png",
+    "static/media/BOX5.png": "/static/media/BOX5.c43e5b1c1603483fe5e6.png",
+    "static/media/BOX4.png": "/static/media/BOX4.079118db4d36f36520b6.png",
+    "index.html": "/index.html",
+    "main.bab1cc96.css.map": "/static/css/main.bab1cc96.css.map",
+    "main.a3ebaca5.js.map": "/static/js/main.a3ebaca5.js.map",
+    "787.1c2056ff.chunk.js.map": "/static/js/787.1c2056ff.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6c13ad2.css",
-    "static/js/main.8af3291c.js"
+    "static/css/main.bab1cc96.css",
+    "static/js/main.a3ebaca5.js"
   ]
 }
