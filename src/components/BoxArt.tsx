@@ -16,6 +16,25 @@ const Image = styled("img")(({ showOverlay }: { showOverlay: boolean }) => ({
   maxHeight: "30%",
   opacity: showOverlay ? 0.5 : 1,
   transition: "opacity 0.5s ease-in-out",
+  animation: showOverlay ? "fadeOut 1s forwards": "fadeIn 1s forwards",
+
+  "@keyframes fadeIn": {
+    "0%": {
+      opacity: "0",
+    },
+    "100%": {
+      opacity: "1",
+    },
+  },
+
+  "@keyframes fadeOut": {
+    "0%": {
+      opacity: "1",
+    },
+    "100%": {
+      opacity: "0.5",
+    },
+  },
 }));
 
 const Overlay = styled(Typography)(
@@ -52,51 +71,61 @@ const Overlay = styled(Typography)(
     },
   })
 );
-
-const BoxTitle = styled(Typography)({
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  textAlign: "center",
-  transition: "opacity 2s ease-in-out",
-  maxWidth: "80%",
-  width: "100%",
-  overflow: "hidden",
-  whiteSpace: "pre-wrap",
-  fontSize: "6vw", // Set an initial font size based on viewport width
-  fontFamily: "'Signika Negative', sans-serif",
-
-  "@media (min-width: 600px)": {
-    fontSize: "3.5vw", // Adjust font size for larger screens
-  },
-  "@media (min-width: 960px)": {
-    fontSize: "2vw", // Adjust font size for even larger screens
-  },
-  animation: "fadeOut 5s forwards",
-
-  "@keyframes fadeOut": {
-    "0%": {
-      opacity: "1",
+const BoxTitle = styled(Typography)(
+  ({ showText }: { showText: boolean }) => ({
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    textAlign: "center",
+    maxWidth: "80%",
+    width: "100%",
+    overflow: "hidden",
+    whiteSpace: "pre-wrap",
+    fontSize: "6vw",
+    fontFamily: "'Signika Negative', sans-serif",
+    opacity: showText ? 1 : 0,
+    transition: "opacity 2s ease-in-out",
+    animation: `${showText ? "fade-in 1s forwards" : "fade-out 1s forwards"}`,
+  
+    "@media (min-width: 600px)": {
+      fontSize: "3.5vw",
     },
-    "80%": {
-      opacity: "1",
+  
+    "@media (min-width: 960px)": {
+      fontSize: "2vw",
     },
-    "100%": {
-      opacity: "0",
+  
+    "@keyframes fade-in": {
+      "0%": {
+        opacity: 0,
+      },
+      "100%": {
+        opacity: 1,
+      },
     },
-  },
-});
+  
+    "@keyframes fade-out": {
+      "0%": {
+        opacity: 1,
+      },
+      "100%": {
+        opacity: 0,
+      },
+    },
+  })
+);
+
 
 const ScrollArrow = styled(IconButton)(
   ({ showArrow }: { showArrow: boolean }) => ({
     scale: "3",
     position: "absolute",
-    bottom: "16px",
+    bottom: "15%",
     transform: "translateX(-50%)",
     opacity: showArrow ? 1 : 0,
     transition: "opacity 1s ease-in-out",
-    animation: showArrow ? "bounce 2s infinite" : "none",
+    animation: showArrow ? "fade-in 1s forwards, bounce 2s infinite" : "none",
     zIndex: 9999,
     color: "white",
     "@keyframes bounce": {
@@ -110,6 +139,9 @@ const ScrollArrow = styled(IconButton)(
         transform: "translateY(0)",
       },
     },
+    "&.fade-in": {
+        animation: "fadeIn 1s forwards",
+      },
   })
 );
 
@@ -122,7 +154,12 @@ const BoxArt: React.FC<BoxArtProps> = ({ fileName, bibleVerse }) => {
   const [showOverlay, setShowOverlay] = useState(false);
   const [showArrow, setShowArrow] = useState(false);
   const [showText, setShowText] = useState(true);
-
+  const handleScroll = () => {
+      const halfViewportHeight = window.innerHeight / 2;
+window.scrollTo({
+      top: window.pageYOffset + halfViewportHeight,
+      behavior: "smooth",
+    });    };
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowOverlay(true);
@@ -145,21 +182,19 @@ const BoxArt: React.FC<BoxArtProps> = ({ fileName, bibleVerse }) => {
         src={require(`../assets/${fileName}`)}
         alt="Image"
       />
-      {showText && (
-        <BoxTitle>
-          <Typography
-            variant="h3"
-            color="white"
-            style={{ animation: "fade-out 0.5s forwards", fontFamily: "'Signika Negative', sans-serif",
- }}
-          >
-            BOX 1<br />
-            <img src={require("../assets/boxIcon.png")} style={{maxWidth: "25%"}} />
-            <br />
-            BLACKHEATH
-          </Typography>
-        </BoxTitle>
-      )}
+      <BoxTitle showText={showText}>
+        <Typography
+          variant="h3"
+          color="white"
+          style={{ fontFamily: "'Signika Negative', sans-serif"}}
+        >
+          BOX 1<br />
+          <img src={require("../assets/boxIcon.png")} style={{maxWidth: "25%"}} />
+          <br />
+          BLACKHEATH
+        </Typography>
+      </BoxTitle>
+    
       {showOverlay && (
         <Overlay showOverlay={showOverlay} variant="h4" color="white">
           {bibleVerse}
@@ -168,7 +203,7 @@ const BoxArt: React.FC<BoxArtProps> = ({ fileName, bibleVerse }) => {
       {showArrow && (
         <ScrollArrow
           showArrow={showArrow}
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          onClick={handleScroll}
         >
           <ArrowDownward />
         </ScrollArrow>
