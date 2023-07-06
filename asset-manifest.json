@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/operation-mystery-box/static/css/main.bab1cc96.css",
-    "main.js": "/operation-mystery-box/static/js/main.31ba9959.js",
+    "main.js": "/operation-mystery-box/static/js/main.f26b59ea.js",
     "static/js/787.585ad7ce.chunk.js": "/operation-mystery-box/static/js/787.585ad7ce.chunk.js",
-    "static/media/BOX1.gif": "/operation-mystery-box/static/media/BOX1.30de4960ad5d322878e0.gif",
-    "static/media/BOX1-OPT.gif": "/operation-mystery-box/static/media/BOX1-OPT.bafcf96dea315e29b9b8.gif",
+    "static/media/BOX1.gif": "/operation-mystery-box/static/media/BOX1.45d2419fdb0de00ce456.gif",
+    "static/media/BOX1-OPT.gif": "/operation-mystery-box/static/media/BOX1-OPT.1bd649255bbd5c287707.gif",
     "static/media/14.jpg": "/operation-mystery-box/static/media/14.75245b3027af35a5fed0.jpg",
     "static/media/4.jpg": "/operation-mystery-box/static/media/4.bd5b3310670b6362fa4b.jpg",
     "static/media/10.jpg": "/operation-mystery-box/static/media/10.7d2845a462ef5379efa4.jpg",
@@ -22,6 +22,7 @@
     "static/media/16.jpg": "/operation-mystery-box/static/media/16.b3226c671d2b618c40ef.jpg",
     "static/media/12.jpg": "/operation-mystery-box/static/media/12.a8867d4be28589ccb60a.jpg",
     "static/media/11.jpg": "/operation-mystery-box/static/media/11.499b8d8a0bd73aeb9963.jpg",
+    "static/media/BOX1.jpeg": "/operation-mystery-box/static/media/BOX1.dba3a3168969433c3fa5.jpeg",
     "static/media/9.jpg": "/operation-mystery-box/static/media/9.d81b1a615835ac3fcd96.jpg",
     "static/media/8.jpg": "/operation-mystery-box/static/media/8.34e214991a0c980112c2.jpg",
     "static/media/17.jpg": "/operation-mystery-box/static/media/17.216d2579c3c9319fc6b6.jpg",
@@ -32,11 +33,11 @@
     "index.html": "/operation-mystery-box/index.html",
     "static/media/imgNameRewriter.py": "/operation-mystery-box/static/media/imgNameRewriter.2a4224f1fcb3c98a4fa1.py",
     "main.bab1cc96.css.map": "/operation-mystery-box/static/css/main.bab1cc96.css.map",
-    "main.31ba9959.js.map": "/operation-mystery-box/static/js/main.31ba9959.js.map",
+    "main.f26b59ea.js.map": "/operation-mystery-box/static/js/main.f26b59ea.js.map",
     "787.585ad7ce.chunk.js.map": "/operation-mystery-box/static/js/787.585ad7ce.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bab1cc96.css",
-    "static/js/main.31ba9959.js"
+    "static/js/main.f26b59ea.js"
   ]
 }
