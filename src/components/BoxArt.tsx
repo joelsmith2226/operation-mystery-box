@@ -155,6 +155,7 @@ const BoxArt: React.FC<BoxArtProps> = ({ fileName, bibleVerse }) => {
           >
             BOX 1<br />
             <img src={require("../assets/boxIcon.png")} style={{maxWidth: "25%"}} />
+            <br />
             BLACKHEATH
           </Typography>
         </BoxTitle>
