@@ -32,6 +32,7 @@ const Overlay = styled(Typography)(
     overflow: "hidden",
     whiteSpace: "pre-wrap",
     fontSize: "4vw", // Set an initial font size based on viewport width
+    fontFamily: "'Signika Negative', sans-serif",
 
     "@media (min-width: 600px)": {
       fontSize: "3.5vw", // Adjust font size for larger screens
@@ -64,6 +65,7 @@ const BoxTitle = styled(Typography)({
   overflow: "hidden",
   whiteSpace: "pre-wrap",
   fontSize: "6vw", // Set an initial font size based on viewport width
+  fontFamily: "'Signika Negative', sans-serif",
 
   "@media (min-width: 600px)": {
     fontSize: "3.5vw", // Adjust font size for larger screens
@@ -148,9 +150,12 @@ const BoxArt: React.FC<BoxArtProps> = ({ fileName, bibleVerse }) => {
           <Typography
             variant="h3"
             color="white"
-            style={{ animation: "fade-out 0.5s forwards" }}
+            style={{ animation: "fade-out 0.5s forwards", fontFamily: "'Signika Negative', sans-serif",
+ }}
           >
-            BOX 1 - BLACKHEATH
+            BOX 1<br />
+            <img src={require("../assets/boxIcon.png")} style={{maxWidth: "25%"}} />
+            BLACKHEATH
           </Typography>
         </BoxTitle>
       )}
