@@ -1,48 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
 import { Box, Grid, Typography } from "@mui/material";
 
-const PhotoCollage = styled(Grid)({
+const PhotoCollage = styled(Grid)(({ opacity }: { opacity: number }) => ({
   flexGrow: 1,
   height: "50vh", // Set the height to 50% of the viewport height
   marginRight: "auto", // Auto margin on the left side
   display: "flex",
   flexWrap: "wrap",
   justifyContent: "center",
-});
+  opacity: opacity,
+  zIndex: 2,
+  transition: "opacity 0.3s ease-in-out",
+}));
 
 const PhotoItem = styled(Grid)({
-  position: "relative", // Set position to enable overlapping
-  width: "calc(25% - 20px)", // Adjust the width as needed
-  margin: "0px", // Add margin to create spacing between items
+  position: "relative",
+  width: "calc(25% - 20px)",
+  margin: "0px",
   padding: "0px",
   transform: "rotate(-2deg)",
   transition: "transform 0.3s ease-in-out",
+  zIndex: 2,
   "&:hover": {
     transform: "rotate(-4deg)",
   },
 });
 
-const Image = styled("img")({
-  width: "100%",
-  height: "100%",
-  objectFit: "cover",
-  transition: "opacity 0.5s ease-in-out",
-  border: "2px solid #ffffff",
-  borderRadius: "8px",
-  boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)",
-  transform: "rotate(-2deg)",
-  "&:hover": {
-    transform: "rotate(-4deg)",
-  },
-});
+const getRandomTransformation = () => {
+  const minTranslateX = -2;
+  const maxTranslateX = 3;
+  const minTranslateY = -2;
+  const maxTranslateY = 3;
+  const minRotate = -1;
+  const maxRotate = 2;
 
-const OverlayContainer = styled(Box)({
-  position: "relative",
+  const translateX =
+    (Math.random() * (maxTranslateX - minTranslateX) + minTranslateX) *
+    getRandomSign();
+  const translateY =
+    (Math.random() * (maxTranslateY - minTranslateY) + minTranslateY) *
+    getRandomSign();
+  const rotate =
+    (Math.random() * (maxRotate - minRotate) + minRotate) * getRandomSign();
+
+  return `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`;
+};
+
+const getRandomSign = () => {
+  return Math.random() < 0.5 ? -1 : 1;
+};
+
+const OverlayContainer = styled(Box)(({ opacity }: { opacity: number }) => ({
+  position: "absolute",
+  top: "50%",
   left: "50%",
-  bottom: "80%",
   transform: "translate(-50%, -50%)",
   padding: "16px",
+  width: "75%",
   background: "rgba(0, 0, 0, 0.8)",
   borderRadius: "8px",
   color: "#ffffff",
@@ -50,9 +65,13 @@ const OverlayContainer = styled(Box)({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-});
+  zIndex: 2,
+  opacity: opacity,
+}));
 
 const OverlayText = styled(Typography)({
+  zIndex: 9,
+  color: "white",
   "@media (min-width: 600px)": {
     fontSize: "3.5vw",
   },
@@ -78,24 +97,77 @@ const PhotoCollageGrid: React.FC<PhotoCollageProps> = ({
     require(`../assets/${directoryPath}/${index + 1}.jpg`)
   );
 
+  const [isLongPress, setIsLongPress] = useState(false);
+
+  const handleLongPress = (event: React.MouseEvent) => {
+    event.preventDefault();
+    setIsLongPress(!isLongPress);
+  };
+
+  const handleRelease = () => {
+    setIsLongPress(false);
+  };
+
   return (
-    <Box>
-      <PhotoCollage container spacing={0}>
-        {imageNames.map((imageName, index) => (
-          <PhotoItem key={index} item>
-            <Image
-              src={imageName}
-              alt={`Photo ${index + 1}`}
-              style={{ transform: `rotate(${Math.random() * 12 - 2}deg)` }}
-            />
-          </PhotoItem>
-        ))}
+    <Box style={{ zIndex: 2 }}>
+      <PhotoCollage
+        container
+        opacity={isLongPress ? 1 : 0.5}
+        spacing={0}
+        onContextMenu={handleLongPress}
+        onMouseUp={handleRelease}
+        onMouseLeave={handleRelease}
+      >
+        {imageNames.map((imageName, index) => {
+          const randomTransformation = getRandomTransformation();
+          const startingPos = `rotate(${Math.random() * 12 - 2}deg)`;
+
+          const floatAnimation = `float-${index + 1} 10s infinite`;
+
+          const floatKeyframes = `
+            @keyframes float-${index + 1} {
+              0% {
+                transform: ${startingPos};
+              }
+              50% {
+                transform: ${randomTransformation};
+              }
+              100% {
+                transform: ${startingPos};
+              }
+            }
+          `;
+
+          return (
+            <PhotoItem key={index} item>
+              <img
+                src={imageName}
+                alt={`Photo ${index + 1}`}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  transition: "opacity 0.5s ease-in-out",
+                  border: "2px solid #ffffff",
+                  borderRadius: "8px",
+                  boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)",
+                  transform: startingPos,
+                  zIndex: 2,
+                  animation: floatAnimation,
+                  animationTimingFunction: "linear",
+                  animationDirection: "alternate",
+                  animationName: `float-${index + 1}`,
+                }}
+              />
+              <style>{floatKeyframes}</style>
+            </PhotoItem>
+          );
+        })}
       </PhotoCollage>
-      <OverlayContainer>
+      <OverlayContainer opacity={isLongPress ? 0 : 1}>
         <OverlayText>{bodyText}</OverlayText>
       </OverlayContainer>
     </Box>
   );
 };
-
 export default PhotoCollageGrid;

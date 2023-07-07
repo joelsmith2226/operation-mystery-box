@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import BoxArt from "../components/BoxArt";
 import PhotoCollageGrid from "../components/PhotoCollageGrid";
 import { Box, styled, Typography } from "@mui/material";
+import { Clue } from "../components/Clue";
 
 const ScrollableContainer = styled(Box)`
   position: relative;
@@ -28,52 +29,22 @@ const Spacer = styled(Box)`
   position: relative;
   width: 100%;
   height: 600px;
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: center;
   z-index: 9999;
 `;
 
-const Clue = styled(Typography)({
-  position: "relative",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  textAlign: "center",
-  maxWidth: "80%",
-  width: "100%",
-  overflow: "hidden",
-  whiteSpace: "pre-wrap",
-  fontSize: "6vw",
-  fontFamily: "'Signika Negative', sans-serif",
-  transition: "opacity 2s ease-in-out",
+const PhotoContainer = styled(Box)`
+  position: relative;
+  z-index: 1;
+  min-height: 95vh;
+`;
 
-  "@media (min-width: 600px)": {
-    fontSize: "3.5vw",
-  },
-
-  "@media (min-width: 960px)": {
-    fontSize: "2vw",
-  },
-
-  "@keyframes fade-in": {
-    "0%": {
-      opacity: 0,
-    },
-    "100%": {
-      opacity: 1,
-    },
-  },
-
-  "@keyframes fade-out": {
-    "0%": {
-      opacity: 1,
-    },
-    "100%": {
-      opacity: 0,
-    },
-  },
-});
+const ClueContainer = styled(Box)`
+  position: relative;
+  z-index: 9999;
+`;
 
 export const Box1Page: React.FC<{}> = () => {
   const [loading, setLoading] = useState(true);
@@ -99,28 +70,20 @@ export const Box1Page: React.FC<{}> = () => {
             fileName="BOX1.gif"
             bibleVerse="7 In him we have redemption through his blood, the forgiveness of sins, in accordance with the riches of God’s grace 8 that he lavished on us. With all wisdom and understanding, 9 he[d] made known to us the mystery of his will according to his good pleasure, which he purposed in Christ, 10 to be put into effect when the times reach their fulfillment—to bring unity to all things in heaven and on earth under Christ. Ephesians 1:7-10"
           />
-          <PhotoCollageGrid
-            directoryPath={"BOX1"}
-            totalImages={18}
-            bodyText={
-              "So this will be a test run of my first message to you. How does it look? something something blackheath hahaha"
-            }
-          />
-          <Clue>
-            <Typography
-              variant="h3"
-              color="white"
-              style={{ fontFamily: "'Signika Negative', sans-serif" }}
-            >
-              BOX 2<br />
-              <img
-                src={require("../assets/boxIcon.png")}
-                style={{ maxWidth: "25%" }}
-              />
-              <br />
-              Clue
-            </Typography>
-          </Clue>
+          <PhotoContainer>
+            <PhotoCollageGrid
+              directoryPath={"BOX1"}
+              totalImages={18}
+              bodyText={
+                "So this will be a test run of my first message to you. How does it look? something something blackheath hahaha" +
+                "So this will be a test run of my first message to you. How does it look? something something blackheath hahaha" +
+                "So this will be a test run of my first message to you. How does it look? something something blackheath hahaha"
+              }
+            />
+          </PhotoContainer>
+          <ClueContainer>
+            <Clue />
+          </ClueContainer>
           <Spacer />
         </ScrollableContainer>
       )}

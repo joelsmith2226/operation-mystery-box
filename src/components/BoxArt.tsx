@@ -14,9 +14,10 @@ const ImageContainer = styled("div")({
 const Image = styled("img")(({ showOverlay }: { showOverlay: boolean }) => ({
   maxWidth: "100%",
   maxHeight: "30%",
+  marginLeft: "-5%",
   opacity: showOverlay ? 0.5 : 1,
   transition: "opacity 0.5s ease-in-out",
-  animation: showOverlay ? "fadeOut 1s forwards": "fadeIn 1s forwards",
+  animation: showOverlay ? "fadeOut 1s forwards" : "fadeIn 1s forwards",
 
   "@keyframes fadeIn": {
     "0%": {
@@ -71,51 +72,39 @@ const Overlay = styled(Typography)(
     },
   })
 );
-const BoxTitle = styled(Typography)(
-  ({ showText }: { showText: boolean }) => ({
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    textAlign: "center",
-    maxWidth: "80%",
-    width: "100%",
-    overflow: "hidden",
-    whiteSpace: "pre-wrap",
-    fontSize: "6vw",
-    fontFamily: "'Signika Negative', sans-serif",
-    opacity: showText ? 1 : 0,
-    transition: "opacity 2s ease-in-out",
-    animation: `${showText ? "fade-in 1s forwards" : "fade-out 1s forwards"}`,
-  
-    "@media (min-width: 600px)": {
-      fontSize: "3.5vw",
-    },
-  
-    "@media (min-width: 960px)": {
-      fontSize: "2vw",
-    },
-  
-    "@keyframes fade-in": {
-      "0%": {
-        opacity: 0,
-      },
-      "100%": {
-        opacity: 1,
-      },
-    },
-  
-    "@keyframes fade-out": {
-      "0%": {
-        opacity: 1,
-      },
-      "100%": {
-        opacity: 0,
-      },
-    },
-  })
-);
+const BoxTitle = styled(Typography)(({ showText }: { showText: boolean }) => ({
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  textAlign: "center",
+  maxWidth: "80%",
+  width: "100%",
+  overflow: "hidden",
+  whiteSpace: "pre-wrap",
+  fontFamily: "'Signika Negative', sans-serif",
+  opacity: showText ? 1 : 0,
+  transition: "opacity 2s ease-in-out",
+  animation: `${showText ? "fade-in 1s forwards" : "fade-out 1s forwards"}`,
 
+  "@keyframes fade-in": {
+    "0%": {
+      opacity: 0,
+    },
+    "100%": {
+      opacity: 1,
+    },
+  },
+
+  "@keyframes fade-out": {
+    "0%": {
+      opacity: 1,
+    },
+    "100%": {
+      opacity: 0,
+    },
+  },
+}));
 
 const ScrollArrow = styled(IconButton)(
   ({ showArrow }: { showArrow: boolean }) => ({
@@ -140,8 +129,8 @@ const ScrollArrow = styled(IconButton)(
       },
     },
     "&.fade-in": {
-        animation: "fadeIn 1s forwards",
-      },
+      animation: "fadeIn 1s forwards",
+    },
   })
 );
 
@@ -155,11 +144,12 @@ const BoxArt: React.FC<BoxArtProps> = ({ fileName, bibleVerse }) => {
   const [showArrow, setShowArrow] = useState(false);
   const [showText, setShowText] = useState(true);
   const handleScroll = () => {
-      const halfViewportHeight = window.innerHeight / 2;
-window.scrollTo({
+    const halfViewportHeight = window.innerHeight / 2;
+    window.scrollTo({
       top: window.pageYOffset + halfViewportHeight,
       behavior: "smooth",
-    });    };
+    });
+  };
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowOverlay(true);
@@ -186,25 +176,28 @@ window.scrollTo({
         <Typography
           variant="h3"
           color="white"
-          style={{ fontFamily: "'Signika Negative', sans-serif"}}
+          style={{
+            fontFamily: "'Signika Negative', sans-serif",
+            fontSize: "12vw",
+          }}
         >
           BOX 1<br />
-          <img src={require("../assets/boxIcon.png")} style={{maxWidth: "25%"}} />
+          <img
+            src={require("../assets/boxIcon.png")}
+            style={{ maxWidth: "25%" }}
+          />
           <br />
           BLACKHEATH
         </Typography>
       </BoxTitle>
-    
+
       {showOverlay && (
         <Overlay showOverlay={showOverlay} variant="h4" color="white">
           {bibleVerse}
         </Overlay>
       )}
       {showArrow && (
-        <ScrollArrow
-          showArrow={showArrow}
-          onClick={handleScroll}
-        >
+        <ScrollArrow showArrow={showArrow} onClick={handleScroll}>
           <ArrowDownward />
         </ScrollArrow>
       )}
