@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
-import { IconButton, Typography } from "@mui/material";
+import { Dialog, DialogContent, IconButton, Typography } from "@mui/material";
 import { ArrowDownward } from "@mui/icons-material";
+import { TextBoxText } from "./TextBoxText";
 
 const ImageContainer = styled("div")({
   position: "relative",
   width: "100%",
-  height: "100vh",
+  height: "110vh",
   display: "flex",
   justifyContent: "center",
 });
@@ -134,15 +135,55 @@ const ScrollArrow = styled(IconButton)(
   })
 );
 
-interface BoxArtProps {
+const CustomDialog = styled(Dialog)(({}) => ({
+  "& .MuiDialog-paper": {
+    background: "transparent",
+    boxShadow: "none",
+  },
+  "& .MuiDialog-paperScrollPaper": {
+    maxHeight: "95vh",
+  },
+}));
+
+const CustomDialogContent = styled(DialogContent)({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  padding: "0",
+  background: "transparent",
+  height: "50vh",
+  width: "150vh",
+  marginLeft: "-50vh",
+});
+
+const DialogImage = styled("img")({
+  width: "100%",
+  height: "100%",
+  objectFit: "contain",
+});
+
+export interface BoxArtProps {
   fileName: string;
   bibleVerse: string;
+  boxName: string;
+  boxNumber: string;
 }
 
-const BoxArt: React.FC<BoxArtProps> = ({ fileName, bibleVerse }) => {
+const BoxArt: React.FC<BoxArtProps> = ({
+  fileName,
+  bibleVerse,
+  boxName,
+  boxNumber,
+}) => {
   const [showOverlay, setShowOverlay] = useState(false);
   const [showArrow, setShowArrow] = useState(false);
   const [showText, setShowText] = useState(true);
+  const [openDialog, setOpenDialog] = useState(false);
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
+
   const handleScroll = () => {
     const halfViewportHeight = window.innerHeight / 2;
     window.scrollTo({
@@ -150,6 +191,7 @@ const BoxArt: React.FC<BoxArtProps> = ({ fileName, bibleVerse }) => {
       behavior: "smooth",
     });
   };
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowOverlay(true);
@@ -171,24 +213,15 @@ const BoxArt: React.FC<BoxArtProps> = ({ fileName, bibleVerse }) => {
         showOverlay={showOverlay}
         src={require(`../assets/${fileName}`)}
         alt="Image"
+        onClick={() => setOpenDialog(true)}
       />
       <BoxTitle showText={showText}>
-        <Typography
-          variant="h3"
-          color="white"
-          style={{
-            fontFamily: "'Signika Negative', sans-serif",
-            fontSize: "12vw",
-          }}
-        >
-          BOX 1<br />
-          <img
-            src={require("../assets/boxIcon.png")}
-            style={{ maxWidth: "25%" }}
-          />
-          <br />
-          BLACKHEATH
-        </Typography>
+        <TextBoxText
+          Text1={boxNumber}
+          Text2={boxName}
+          fontSize="12vw"
+          animate={false}
+        />
       </BoxTitle>
 
       {showOverlay && (
@@ -201,8 +234,18 @@ const BoxArt: React.FC<BoxArtProps> = ({ fileName, bibleVerse }) => {
           <ArrowDownward />
         </ScrollArrow>
       )}
+
+      <CustomDialog
+        open={openDialog}
+        onClose={handleCloseDialog}
+        maxWidth="md"
+        fullWidth
+      >
+        <CustomDialogContent>
+          <DialogImage src={require(`../assets/${fileName}`)} alt="Image" />
+        </CustomDialogContent>
+      </CustomDialog>
     </ImageContainer>
   );
 };
-
 export default BoxArt;

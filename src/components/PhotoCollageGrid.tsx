@@ -72,20 +72,14 @@ const OverlayContainer = styled(Box)(({ opacity }: { opacity: number }) => ({
 const OverlayText = styled(Typography)({
   zIndex: 9,
   color: "white",
-  "@media (min-width: 600px)": {
-    fontSize: "3.5vw",
-  },
-
-  "@media (min-width: 960px)": {
-    fontSize: "2vw",
-  },
+  fontSize: "4vw",
   fontWeight: "bold",
 });
 
-interface PhotoCollageProps {
+export interface PhotoCollageProps {
   directoryPath: string; // Path to the directory containing the images
   totalImages: number; // Total number of images
-  bodyText: string;
+  bodyText: string[];
 }
 
 const PhotoCollageGrid: React.FC<PhotoCollageProps> = ({
@@ -112,7 +106,7 @@ const PhotoCollageGrid: React.FC<PhotoCollageProps> = ({
     <Box style={{ zIndex: 2 }}>
       <PhotoCollage
         container
-        opacity={isLongPress ? 1 : 0.5}
+        opacity={isLongPress ? 1 : 0.64}
         spacing={0}
         onContextMenu={handleLongPress}
         onMouseUp={handleRelease}
@@ -165,7 +159,11 @@ const PhotoCollageGrid: React.FC<PhotoCollageProps> = ({
         })}
       </PhotoCollage>
       <OverlayContainer opacity={isLongPress ? 0 : 1}>
-        <OverlayText>{bodyText}</OverlayText>
+        <OverlayText>
+          {bodyText.map((val) => (
+            <p>{val}</p>
+          ))}
+        </OverlayText>
       </OverlayContainer>
     </Box>
   );

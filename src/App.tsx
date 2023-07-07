@@ -1,4 +1,4 @@
-import { Box, createTheme, ThemeProvider, Typography } from "@mui/material";
+import { Box, createTheme } from "@mui/material";
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -8,9 +8,16 @@ import {
   Routes,
 } from "react-router-dom";
 import "./App.css";
-import { Box1Page } from "./pages/Box1Page";
-import Root from "./routes/root";
+import {
+  Box1Page,
+  Box2Page,
+  Box3Page,
+  Box4Page,
+  Box5Page,
+  Box6Page,
+} from "./pages/BoxPages";
 import { styled } from "@mui/material/styles";
+import ContentsPage from "./pages/ContentsPage";
 
 // Define the custom theme
 const theme = createTheme({
@@ -32,8 +39,32 @@ const theme = createTheme({
 
 const router = createBrowserRouter([
   {
-    path: "*",
+    path: "blackheath",
     element: <Box1Page />,
+  },
+  {
+    path: "esky",
+    element: <Box2Page />,
+  },
+  {
+    path: "meadowbank",
+    element: <Box3Page />,
+  },
+  {
+    path: "wharf",
+    element: <Box4Page />,
+  },
+  {
+    path: "maxine",
+    element: <Box5Page />,
+  },
+  {
+    path: "hill",
+    element: <Box6Page />,
+  },
+  {
+    path: "*",
+    element: <ContentsPage />,
   },
 ]);
 
