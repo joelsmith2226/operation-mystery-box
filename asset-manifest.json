@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/operation-mystery-box/static/css/main.bab1cc96.css",
-    "main.js": "/operation-mystery-box/static/js/main.f26b59ea.js",
+    "main.js": "/operation-mystery-box/static/js/main.319bdbb6.js",
     "static/js/787.585ad7ce.chunk.js": "/operation-mystery-box/static/js/787.585ad7ce.chunk.js",
     "static/media/BOX1.gif": "/operation-mystery-box/static/media/BOX1.45d2419fdb0de00ce456.gif",
     "static/media/BOX1-OPT.gif": "/operation-mystery-box/static/media/BOX1-OPT.1bd649255bbd5c287707.gif",
@@ -33,11 +33,11 @@
     "index.html": "/operation-mystery-box/index.html",
     "static/media/imgNameRewriter.py": "/operation-mystery-box/static/media/imgNameRewriter.2a4224f1fcb3c98a4fa1.py",
     "main.bab1cc96.css.map": "/operation-mystery-box/static/css/main.bab1cc96.css.map",
-    "main.f26b59ea.js.map": "/operation-mystery-box/static/js/main.f26b59ea.js.map",
+    "main.319bdbb6.js.map": "/operation-mystery-box/static/js/main.319bdbb6.js.map",
     "787.585ad7ce.chunk.js.map": "/operation-mystery-box/static/js/787.585ad7ce.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bab1cc96.css",
-    "static/js/main.f26b59ea.js"
+    "static/js/main.319bdbb6.js"
   ]
 }
