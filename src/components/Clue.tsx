@@ -21,31 +21,12 @@ const ClueComp = styled(Typography)({
   zIndex: 9999,
 });
 
-const ClueText = styled(Typography)({
-  textAlign: "left",
-  maxWidth: "100%",
-  width: "100%",
-  whiteSpace: "nowrap",
-  fontSize: "5vw",
-  fontFamily: "'Signika Negative', sans-serif",
-  position: "relative",
-  color: "black",
-
-  "@media (min-width: 600px)": {
-    fontSize: "8vw",
-  },
-
-  "@media (min-width: 960px)": {
-    fontSize: "8vw",
-  },
-  zIndex: 9999,
-});
-
 const OverlayContainer = styled(Box)({
   padding: "16px",
   marginLeft: "20%",
   marginRight: "20%",
   background: "rgba(0, 0, 0, 0.8)",
+  border: "1px solid white",
   borderRadius: "8px",
   textAlign: "center",
   display: "flex",
@@ -77,8 +58,11 @@ const BoxImg = styled("img")({
   },
   cursor: "pointer",
 });
-
-export const Clue: React.FC<{}> = () => {
+export interface ClueProps  {
+  boxNumber: string;
+  clue: JSX.Element;
+}
+export const Clue: React.FC<ClueProps> = ({boxNumber, clue}) => {
   const [openDialog, setOpenDialog] = useState(false);
 
   const handleClick = () => {
@@ -92,21 +76,13 @@ export const Clue: React.FC<{}> = () => {
   return (
     <>
       <OverlayContainer>
-        <ClueComp>BOX 2</ClueComp>
+        <ClueComp>{boxNumber}</ClueComp>
         <BoxImg src={require("../assets/boxIcon.png")} onClick={handleClick} />
         <ClueComp>Clue</ClueComp>
       </OverlayContainer>
       <Dialog open={openDialog} onClose={handleClose}>
         <DialogContent>
-          <ClueText variant="h5">
-            Early in our story
-            <br />
-            Stealing looks across the room
-            <br />
-            Kold is this place
-            <br />
-            Your boy was nervous next to you
-          </ClueText>
+          {clue}
         </DialogContent>
       </Dialog>
     </>

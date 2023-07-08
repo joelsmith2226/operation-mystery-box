@@ -39,31 +39,31 @@ const theme = createTheme({
 
 const router = createBrowserRouter([
   {
-    path: "blackheath",
+    path: "/operation-mystery-box/blackheath",
     element: <Box1Page />,
   },
   {
-    path: "esky",
+    path: "/operation-mystery-box/esky",
     element: <Box2Page />,
   },
   {
-    path: "meadowbank",
+    path: "/operation-mystery-box/meadowbank",
     element: <Box3Page />,
   },
   {
-    path: "wharf",
+    path: "/operation-mystery-box/wharf",
     element: <Box4Page />,
   },
   {
-    path: "maxine",
+    path: "/operation-mystery-box/maxine",
     element: <Box5Page />,
   },
   {
-    path: "hill",
+    path: "/operation-mystery-box/hill",
     element: <Box6Page />,
   },
   {
-    path: "*",
+    path: "/operation-mystery-box",
     element: <ContentsPage />,
   },
 ]);

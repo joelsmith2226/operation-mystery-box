@@ -27,6 +27,8 @@ const BoxImg = styled("img")({
   zIndex: 9999,
   maxWidth: "40%",
   animation: "pulse 2s infinite",
+  objectFit: "cover", // Maintain aspect ratio and crop if necessary
+
   "@keyframes pulse": {
     "0%": {
       transform: "scale(1)",
@@ -46,10 +48,6 @@ const BoxImg = styled("img")({
 
 const Container = styled(Box)({
   padding: "16px",
-  marginLeft: "20%",
-  marginRight: "20%",
-  background: "rgba(0, 0, 0, 0.8)",
-  borderRadius: "8px",
   textAlign: "center",
   display: "flex",
   flexDirection: "column",

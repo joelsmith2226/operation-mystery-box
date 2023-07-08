@@ -53,12 +53,13 @@ const getRandomSign = () => {
 
 const OverlayContainer = styled(Box)(({ opacity }: { opacity: number }) => ({
   position: "absolute",
-  top: "50%",
+  top: "35%",
   left: "50%",
   transform: "translate(-50%, -50%)",
   padding: "16px",
   width: "75%",
   background: "rgba(0, 0, 0, 0.8)",
+  border: "1px solid white",
   borderRadius: "8px",
   color: "#ffffff",
   textAlign: "center",

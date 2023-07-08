@@ -2,6 +2,10 @@ import React from "react";
 import { BoxArtProps } from "../components/BoxArt";
 import { BaseBoxPage } from "./BaseBoxPage";
 import { PhotoCollageProps } from "../components/PhotoCollageGrid";
+import { ClueProps } from "../components/Clue";
+import { Box1Clue } from "../components/boxClues/Box1Clue";
+import Box3Clue from "../components/boxClues/Box3Clue";
+import Wordle from "../components/boxClues/Box3Clue";
 
 export const Box1Page: React.FC<{}> = () => {
   const boxArtProps: BoxArtProps = {
@@ -21,10 +25,16 @@ export const Box1Page: React.FC<{}> = () => {
     ],
   };
 
+  const clueProps: ClueProps = {
+    clue: <Box1Clue />,
+    boxNumber: "Box 2",
+  }
+
   return (
     <BaseBoxPage
       boxArtProps={boxArtProps}
       photoCollageProps={photoCollageProps}
+      clueProps={clueProps}
     />
   );
 };
@@ -43,10 +53,16 @@ export const Box2Page: React.FC<{}> = () => {
     bodyText: ["First time I asked you out"],
   };
 
+  const clueProps: ClueProps = {
+    clue: <Box1Clue />,
+    boxNumber: "Box 3",
+  }
+
   return (
     <BaseBoxPage
       boxArtProps={boxArtProps}
       photoCollageProps={photoCollageProps}
+      clueProps={clueProps}
     />
   );
 };
@@ -65,10 +81,16 @@ export const Box3Page: React.FC<{}> = () => {
     bodyText: ["First date"],
   };
 
+  const clueProps: ClueProps = {
+    clue: <Wordle />,
+    boxNumber: "Box 4",
+  }
+
   return (
     <BaseBoxPage
       boxArtProps={boxArtProps}
       photoCollageProps={photoCollageProps}
+      clueProps={clueProps}
     />
   );
 };
@@ -86,10 +108,16 @@ export const Box4Page: React.FC<{}> = () => {
     totalImages: 15,
     bodyText: ["First timeline"],
   };
+  const clueProps: ClueProps = {
+    clue: <Box1Clue />,
+    boxNumber: "Box 5",
+  }
+
   return (
     <BaseBoxPage
       boxArtProps={boxArtProps}
       photoCollageProps={photoCollageProps}
+      clueProps={clueProps}
     />
   );
 };
@@ -108,10 +136,16 @@ export const Box5Page: React.FC<{}> = () => {
     bodyText: ["First kiss/I love you"],
   };
 
+  const clueProps: ClueProps = {
+    clue: <Box1Clue />,
+    boxNumber: "Box 6",
+  }
+
   return (
     <BaseBoxPage
       boxArtProps={boxArtProps}
       photoCollageProps={photoCollageProps}
+      clueProps={clueProps}
     />
   );
 };
@@ -129,10 +163,16 @@ export const Box6Page: React.FC<{}> = () => {
     totalImages: 1,
     bodyText: ["nice"],
   };
+  const clueProps: ClueProps = {
+    clue: <Box1Clue />,
+    boxNumber: "Box 7?",
+  }
+
   return (
     <BaseBoxPage
       boxArtProps={boxArtProps}
       photoCollageProps={photoCollageProps}
+      clueProps={clueProps}
     />
   );
 };

@@ -15,6 +15,7 @@ const ImageContainer = styled("div")({
 const Image = styled("img")(({ showOverlay }: { showOverlay: boolean }) => ({
   maxWidth: "100%",
   maxHeight: "30%",
+  objectFit: "cover", // Maintain aspect ratio and crop if necessary
   marginLeft: "-5%",
   opacity: showOverlay ? 0.5 : 1,
   transition: "opacity 0.5s ease-in-out",
@@ -135,7 +136,7 @@ const ScrollArrow = styled(IconButton)(
   })
 );
 
-const CustomDialog = styled(Dialog)(({}) => ({
+const CustomDialog = styled(Dialog)({
   "& .MuiDialog-paper": {
     background: "transparent",
     boxShadow: "none",
@@ -143,25 +144,33 @@ const CustomDialog = styled(Dialog)(({}) => ({
   "& .MuiDialog-paperScrollPaper": {
     maxHeight: "95vh",
   },
-}));
+});
 
 const CustomDialogContent = styled(DialogContent)({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  padding: "0",
   background: "transparent",
   height: "50vh",
-  width: "150vh",
-  marginLeft: "-50vh",
+  // width: "100vh",
+  border: "3px solid white",
+
+});
+
+
+const DialogImageContainer = styled("div")({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  width: "100%",
+  height: "100%",
 });
 
 const DialogImage = styled("img")({
-  width: "100%",
-  height: "100%",
+  maxWidth: "100%",
+  maxHeight: "100%",
   objectFit: "contain",
 });
-
 export interface BoxArtProps {
   fileName: string;
   bibleVerse: string;
@@ -242,7 +251,7 @@ const BoxArt: React.FC<BoxArtProps> = ({
         fullWidth
       >
         <CustomDialogContent>
-          <DialogImage src={require(`../assets/${fileName}`)} alt="Image" />
+          <DialogImageContainer><DialogImage src={require(`../assets/${fileName}`)} alt="Image" /></DialogImageContainer>
         </CustomDialogContent>
       </CustomDialog>
     </ImageContainer>

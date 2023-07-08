@@ -4,7 +4,7 @@ import PhotoCollageGrid, {
   PhotoCollageProps,
 } from "../components/PhotoCollageGrid";
 import { Box, CircularProgress, styled, Typography } from "@mui/material";
-import { Clue } from "../components/Clue";
+import { Clue, ClueProps } from "../components/Clue";
 import { TextBoxText } from "../components/TextBoxText";
 
 const ScrollableContainer = styled(Box)`
@@ -59,11 +59,13 @@ const LoadingBox = styled(Box)`
 interface BaseBoxPageProps {
   boxArtProps: BoxArtProps;
   photoCollageProps: PhotoCollageProps;
+  clueProps: ClueProps;
 }
 
 export const BaseBoxPage: React.FC<BaseBoxPageProps> = ({
   boxArtProps,
   photoCollageProps,
+  clueProps
 }) => {
   const [loading, setLoading] = useState(true);
 
@@ -112,7 +114,7 @@ export const BaseBoxPage: React.FC<BaseBoxPageProps> = ({
             />
           </PhotoContainer>
           <ClueContainer>
-            <Clue />
+            <Clue clue={clueProps.clue} boxNumber={clueProps.boxNumber} />
           </ClueContainer>
           <Spacer />
         </ScrollableContainer>
