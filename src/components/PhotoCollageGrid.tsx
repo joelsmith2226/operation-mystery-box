@@ -32,8 +32,8 @@ const getRandomTransformation = () => {
   const maxTranslateX = 3;
   const minTranslateY = -2;
   const maxTranslateY = 3;
-  const minRotate = -1;
-  const maxRotate = 2;
+  const minRotate = -10;
+  const maxRotate = 10;
 
   const translateX =
     (Math.random() * (maxTranslateX - minTranslateX) + minTranslateX) *

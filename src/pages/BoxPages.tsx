@@ -18,7 +18,7 @@ export const Box1Page: React.FC<{}> = () => {
 
   const photoCollageProps: PhotoCollageProps = {
     directoryPath: "BOX1",
-    totalImages: 18,
+    totalImages: 20,
     bodyText: [
       "Well, the cat's out of the box now! I've learnt a few new tricks these past few months that I have done my best at hiding from you... I wonder how many of these you knew about 😅",
       "Anyho, this is our first trip down memory lane: Blackheath. The first place where this boy became googly eyed over a certain meringue girl. From book shops to burger making buds, this was a time that I well and truly began full crushing over you",
@@ -49,7 +49,7 @@ export const Box2Page: React.FC<{}> = () => {
 
   const photoCollageProps: PhotoCollageProps = {
     directoryPath: "BOX2",
-    totalImages: 13,
+    totalImages: 15,
     bodyText: ["First time I asked you out"],
   };
 
@@ -77,7 +77,7 @@ export const Box3Page: React.FC<{}> = () => {
 
   const photoCollageProps: PhotoCollageProps = {
     directoryPath: "BOX3",
-    totalImages: 14,
+    totalImages: 20,
     bodyText: ["First date"],
   };
 
@@ -132,7 +132,7 @@ export const Box5Page: React.FC<{}> = () => {
 
   const photoCollageProps: PhotoCollageProps = {
     directoryPath: "BOX5",
-    totalImages: 18,
+    totalImages: 20,
     bodyText: ["First kiss/I love you"],
   };
 
