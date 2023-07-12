@@ -11,7 +11,7 @@ export const Box1Page: React.FC<{}> = () => {
   const boxArtProps: BoxArtProps = {
     fileName: "BOX1.gif",
     bibleVerse:
-      "7 In him we have redemption through his blood, the forgiveness of sins, in accordance with the riches of God’s grace 8 that he lavished on us. With all wisdom and understanding, 9 he[d] made known to us the mystery of his will according to his good pleasure, which he purposed in Christ, 10 to be put into effect when the times reach their fulfillment—to bring unity to all things in heaven and on earth under Christ. Ephesians 1:7-10",
+      "3 Praise be to the God and Father of our Lord Jesus Christ! In his great mercy he has given us new birth into a living hope through the resurrection of Jesus Christ from the dead, 4 and into an inheritance that can never perish, spoil or fade. 1 Peter 1:3-4",
     boxName: "Blackheath",
     boxNumber: "Box 1",
   };
@@ -41,8 +41,8 @@ export const Box1Page: React.FC<{}> = () => {
 
 export const Box2Page: React.FC<{}> = () => {
   const boxArtProps: BoxArtProps = {
-    fileName: "BOX2.png",
-    bibleVerse: "This is a verse from ISAIAH 6",
+    fileName: "BOX2.gif",
+    bibleVerse: "“For this reason a man will leave his father and mother and be united to his wife, and the two will become one flesh.” 32 This is a profound mystery—but I am talking about Christ and the church. 33 However, each one of you also must love his wife as he loves himself, and the wife must respect her husband. Ephesians 5:31-33",
     boxName: "Esky",
     boxNumber: "Box 2",
   };
@@ -69,8 +69,8 @@ export const Box2Page: React.FC<{}> = () => {
 
 export const Box3Page: React.FC<{}> = () => {
   const boxArtProps: BoxArtProps = {
-    fileName: "BOX3.png",
-    bibleVerse: "This is a verse from ROMANS 8",
+    fileName: "BOX3.gif",
+    bibleVerse: "7 With it he touched my mouth and said, \“See, this has touched your lips; your guilt is taken away and your sin atoned for.\”8 Then I heard the voice of the Lord saying, “Whom shall I send? And who will go for us?”And I said, “Here am I. Send me!”Isaiah 6:7-8",
     boxName: "Meadowbank",
     boxNumber: "Box 3",
   };
@@ -97,8 +97,8 @@ export const Box3Page: React.FC<{}> = () => {
 
 export const Box4Page: React.FC<{}> = () => {
   const boxArtProps: BoxArtProps = {
-    fileName: "BOX4.png",
-    bibleVerse: "This is a verse from PROVERBS 31",
+    fileName: "BOX4.gif",
+    bibleVerse: "37 No, in all these things we are more than conquerors through him who loved us. 38 For I am convinced that neither death nor life, neither angels nor demons, neither the present nor the future, nor any powers, 39 neither height nor depth, nor anything else in all creation, will be able to separate us from the love of God that is in Christ Jesus our Lord. Romans 8: 37-39",
     boxName: "Wharf",
     boxNumber: "Box 4",
   };
@@ -124,8 +124,8 @@ export const Box4Page: React.FC<{}> = () => {
 
 export const Box5Page: React.FC<{}> = () => {
   const boxArtProps: BoxArtProps = {
-    fileName: "BOX5.png",
-    bibleVerse: "This is a verse from GEN 1",
+    fileName: "BOX5.gif",
+    bibleVerse: "10 A wife of noble character who can find?She is worth far more than rubies. Her children arise and call her blessed her husband also, and he praises her... 29 “Many women do noble things,but you surpass them all. 30 Charm is deceptive, and beauty is fleeting;but a woman who fears the Lord is to be praised. 31 Honor her for all that her hands have done, and let her works bring her praise at the city gate. Proverbs 31:10, 29-31",
     boxName: "Maxine",
     boxNumber: "Box 5",
   };
@@ -152,7 +152,7 @@ export const Box5Page: React.FC<{}> = () => {
 
 export const Box6Page: React.FC<{}> = () => {
   const boxArtProps: BoxArtProps = {
-    fileName: "BOX6.png",
+    fileName: "BOX6.gif",
     bibleVerse: "This is a verse from 1 PETER",
     boxName: "Hill",
     boxNumber: "Box 6",

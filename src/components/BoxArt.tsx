@@ -16,7 +16,7 @@ const Image = styled("img")(({ showOverlay }: { showOverlay: boolean }) => ({
   maxWidth: "100%",
   maxHeight: "30%",
   objectFit: "cover", // Maintain aspect ratio and crop if necessary
-  marginLeft: "-5%",
+  // marginLeft: "-5%",
   opacity: showOverlay ? 0.5 : 1,
   transition: "opacity 0.5s ease-in-out",
   animation: showOverlay ? "fadeOut 1s forwards" : "fadeIn 1s forwards",
