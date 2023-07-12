@@ -2,9 +2,7 @@ import { Box, createTheme } from "@mui/material";
 import React from "react";
 import {
   BrowserRouter as Router,
-  createBrowserRouter,
   Route,
-  RouterProvider,
   Routes,
 } from "react-router-dom";
 import "./App.css";
@@ -36,49 +34,27 @@ const theme = createTheme({
     fontFamily: "Allan-Bold", // Use the custom font
   },
 });
-
-const router = createBrowserRouter([
-  {
-    path: "/operation-mystery-box/blackheath",
-    element: <Box1Page />,
-  },
-  {
-    path: "/operation-mystery-box/esky",
-    element: <Box2Page />,
-  },
-  {
-    path: "/operation-mystery-box/meadowbank",
-    element: <Box3Page />,
-  },
-  {
-    path: "/operation-mystery-box/wharf",
-    element: <Box4Page />,
-  },
-  {
-    path: "/operation-mystery-box/maxine",
-    element: <Box5Page />,
-  },
-  {
-    path: "/operation-mystery-box/hill",
-    element: <Box6Page />,
-  },
-  {
-    path: "/operation-mystery-box",
-    element: <ContentsPage />,
-  },
-]);
+const Root = styled(Box)({
+  backgroundColor: "black",
+  height: "100%",
+  width: "100%",
+  position: "fixed",
+});
 
 export const App: React.FC<{}> = () => {
-  const Root = styled(Box)({
-    backgroundColor: "black",
-    height: "100%",
-    width: "100%",
-    position: "fixed",
-  });
-
   return (
-    <Root>
-      <RouterProvider router={router} />
-    </Root>
+    <Root>   
+      <Router>
+        <Routes>
+          <Route path="/operation-mystery-box" element={<ContentsPage />} />
+          <Route path="/operation-mystery-box/blackheath" element={<Box1Page />} />
+          <Route path="/operation-mystery-box/esky" element={<Box2Page />} />
+          <Route path="/operation-mystery-box/meadowbank" element={<Box3Page />} />
+          <Route path="/operation-mystery-box/wharf" element={<Box4Page />} />
+          <Route path="/operation-mystery-box/maxine" element={<Box5Page />} />
+          <Route path="/operation-mystery-box/hill" element={<Box6Page />} />
+        </Routes>
+    </Router>
+  </Root>
   );
 };
