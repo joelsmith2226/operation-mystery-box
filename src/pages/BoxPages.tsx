@@ -6,6 +6,7 @@ import { ClueProps } from "../components/Clue";
 import { Box1Clue } from "../components/boxClues/Box1Clue";
 import Box3Clue from "../components/boxClues/Box3Clue";
 import Wordle from "../components/boxClues/Box3Clue";
+import Box4Clue from "../components/boxClues/Box4Clue";
 
 export const Box1Page: React.FC<{}> = () => {
   const boxArtProps: BoxArtProps = {
@@ -109,7 +110,7 @@ export const Box4Page: React.FC<{}> = () => {
     bodyText: ["First timeline"],
   };
   const clueProps: ClueProps = {
-    clue: <Box1Clue />,
+    clue: <Box4Clue />,
     boxNumber: "Box 5",
   }
 
