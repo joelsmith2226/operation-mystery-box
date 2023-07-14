@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import BoxArt, { BoxArtProps } from "../components/BoxArt";
-import PhotoCollageGrid, {
-  PhotoCollageProps,
-} from "../components/PhotoCollageGrid";
+import PhotoCollageGrid, { PhotoCollageProps } from "../components/PhotoCollageGrid";
 import { Box, CircularProgress, styled, Typography } from "@mui/material";
 import { Clue, ClueProps } from "../components/Clue";
 import { TextBoxText } from "../components/TextBoxText";
+import Password from "../components/Password";
 
 const ScrollableContainer = styled(Box)`
   position: relative;
@@ -65,9 +64,10 @@ interface BaseBoxPageProps {
 export const BaseBoxPage: React.FC<BaseBoxPageProps> = ({
   boxArtProps,
   photoCollageProps,
-  clueProps
+  clueProps,
 }) => {
   const [loading, setLoading] = useState(true);
+  const [passwordCorrect, setPasswordCorrect] = useState(false);
 
   useEffect(() => {
     // Simulating a delay to show the loading screen
@@ -79,6 +79,10 @@ export const BaseBoxPage: React.FC<BaseBoxPageProps> = ({
       clearTimeout(timer);
     };
   }, []);
+
+  const handlePasswordCorrect = () => {
+    setPasswordCorrect(true);
+  };
 
   return (
     <>
@@ -99,25 +103,31 @@ export const BaseBoxPage: React.FC<BaseBoxPageProps> = ({
           </LoadingBox>
         </LoadingScreen>
       ) : (
-        <ScrollableContainer>
-          <BoxArt
-            fileName={boxArtProps.fileName}
-            bibleVerse={boxArtProps.bibleVerse}
-            boxName={boxArtProps.boxName}
-            boxNumber={boxArtProps.boxNumber}
-          />
-          <PhotoContainer>
-            <PhotoCollageGrid
-              directoryPath={photoCollageProps.directoryPath}
-              totalImages={photoCollageProps.totalImages}
-              bodyText={photoCollageProps.bodyText}
-            />
-          </PhotoContainer>
-          <ClueContainer>
-            <Clue clue={clueProps.clue} boxNumber={clueProps.boxNumber} />
-          </ClueContainer>
-          <Spacer />
-        </ScrollableContainer>
+        <>
+          {passwordCorrect ? (
+            <ScrollableContainer>
+              <BoxArt
+                fileName={boxArtProps.fileName}
+                bibleVerse={boxArtProps.bibleVerse}
+                boxName={boxArtProps.boxName}
+                boxNumber={boxArtProps.boxNumber}
+              />
+              <PhotoContainer>
+                <PhotoCollageGrid
+                  directoryPath={photoCollageProps.directoryPath}
+                  totalImages={photoCollageProps.totalImages}
+                  bodyText={photoCollageProps.bodyText}
+                />
+              </PhotoContainer>
+              <ClueContainer>
+                <Clue clue={clueProps.clue} boxNumber={clueProps.boxNumber} />
+              </ClueContainer>
+              <Spacer />
+            </ScrollableContainer>
+          ) : (
+            <Password onPasswordCorrect={handlePasswordCorrect} />
+          )}
+        </>
       )}
     </>
   );
