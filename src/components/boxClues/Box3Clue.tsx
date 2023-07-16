@@ -1,12 +1,62 @@
 import React, { useState } from "react";
-import { Grid, Paper, TextField, Typography, Snackbar } from "@mui/material";
+import { Grid, Paper, TextField, Typography, Snackbar, Box } from "@mui/material";
 import { Flip } from "react-awesome-reveal";
+import { styled } from "@mui/system";
 
-const Wordle: React.FC = () => {
+const StyledPaper = styled(Box)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+`;
+
+const StyledLetterPaper = styled(Paper)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  width: 48px;
+  margin: 2px;
+`;
+
+const StyledTypography = styled(Typography)`
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 4vw;
+  font-family: 'Signika Negative', sans-serif;
+  text-align: center;
+`;
+
+const StyledTextField = styled(TextField)`
+  margin-top: 2px;
+  width: 100%;
+  font-size: 4vw;
+  font-family: 'Signika Negative', sans-serif;
+  text-align: center;
+
+  & input {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+`;
+
+const Label = styled(Typography)`
+  font-size: 4vw;
+  font-family: 'Signika Negative', sans-serif;
+  text-align: center;
+`;
+
+
+const  Wordle: React.FC = () => {
   const targetWord = "WHARF";
   const [guesses, setGuesses] = useState<string[]>(Array(6).fill(""));
   const [currentGuess, setCurrentGuess] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [lastGuessedIndex, setLastGuessedIndex] = useState(-1);
   const [errorSnackbarOpen, setErrorSnackbarOpen] = useState(false);
 
   const handleGuessChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,14 +74,15 @@ const Wordle: React.FC = () => {
       newGuesses[currentIndex] = currentGuess;
       setGuesses(newGuesses);
       setCurrentGuess("");
+      setLastGuessedIndex(currentIndex);
       setCurrentIndex(currentIndex + 1);
     }
   };
 
   const getFeedbackColor = (letter: string, index: number) => {
-    if (currentIndex === index) {
+    if (letter !== "") {
       if (letter === targetWord[index]) {
-        return "green";
+        return "lime";
       } else if (targetWord.includes(letter)) {
         return "yellow";
       }
@@ -48,65 +99,45 @@ const Wordle: React.FC = () => {
       <Grid container spacing={1}>
         {Array(6).fill(null).map((_, rowIndex) => (
           <Grid item xs={12} key={rowIndex}>
-            <Paper
-              elevation={3}
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                height: 60,
-                width: "100%",
-              }}
-            >
+            <StyledPaper>
               {targetWord.split("").map((letter, colIndex) => (
-                <Flip key={colIndex} triggerOnce direction="vertical">
-                  <Paper
-                    elevation={3}
-                    sx={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      height: 48,
-                      width: 48,
-                      backgroundColor: getFeedbackColor(guesses[rowIndex]?.[colIndex] || "", rowIndex),
-                    }}
-                  >
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        color: "black",
-                        fontWeight: "bold",
-                        textTransform: "uppercase",
-                      }}
-                    >
+                <StyledLetterPaper
+                  key={colIndex}
+                  elevation={3}
+                  sx={{
+                    backgroundColor:
+                      getFeedbackColor(guesses[rowIndex]?.[colIndex] || "", colIndex),
+                  }}
+                >
+                  {rowIndex === lastGuessedIndex ? (
+                    <Flip triggerOnce direction="vertical">
+                      <StyledTypography variant="h6">
+                        {guesses[rowIndex]?.[colIndex] || ""}
+                      </StyledTypography>
+                    </Flip>
+                  ) : (
+                    <StyledTypography variant="h6">
                       {guesses[rowIndex]?.[colIndex] || ""}
-                    </Typography>
-                  </Paper>
-                </Flip>
+                    </StyledTypography>
+                  )}
+                </StyledLetterPaper>
               ))}
-            </Paper>
+            </StyledPaper>
           </Grid>
         ))}
         <Grid item xs={12}>
-          <TextField
+          <StyledTextField
             value={currentGuess}
             onChange={handleGuessChange}
             onKeyDown={handleEnterPress}
             autoFocus
             inputProps={{
               maxLength: 5,
-              style: {
-                textAlign: "center",
-                fontSize: "20px",
-                fontWeight: "bold",
-                textTransform: "uppercase",
-              },
-            }}
-            sx={{
-              marginTop: 2,
-              width: "100%",
             }}
           />
+          <Label>
+            Wordjoele (My best at a Wordle clone lol)
+          </Label>
         </Grid>
       </Grid>
       <Snackbar
