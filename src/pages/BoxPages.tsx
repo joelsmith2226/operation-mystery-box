@@ -8,6 +8,7 @@ import Box3Clue from "../components/boxClues/Box3Clue";
 import Wordle from "../components/boxClues/Box3Clue";
 import Box4Clue from "../components/boxClues/Box4Clue";
 import Box2Clue from "../components/boxClues/Box2Clue";
+import Box5Clue from "../components/boxClues/Box5Clue";
 
 export const Box1Page: React.FC<{}> = () => {
   const boxArtProps: BoxArtProps = {
@@ -139,7 +140,7 @@ export const Box5Page: React.FC<{}> = () => {
   };
 
   const clueProps: ClueProps = {
-    clue: <Box1Clue />,
+    clue: <Box5Clue />,
     boxNumber: "Box 6",
   }
 
