@@ -49,11 +49,6 @@
  */
 
 /**
- * @license crypto-ts
- * MIT license
- */
-
-/**
  * @mui/styled-engine v5.13.2
  *
  * @license MIT
