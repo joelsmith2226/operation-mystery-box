@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 
 const ContentsPage: React.FC<{}> = () => {
   const contents = [
-    { label: "Box 1", path: "/operation-mystery-box/blackheath" },
-    { label: "Box 2", path: "/operation-mystery-box/esky" },
-    { label: "Box 3", path: "/operation-mystery-box/meadowbank" },
-    { label: "Box 4", path: "/operation-mystery-box/wharf" },
-    { label: "Box 5", path: "/operation-mystery-box/maxine" },
-    { label: "Box 6", path: "/operation-mystery-box/hill" },
+    { label: "Box 1", path: "/blackheath" },
+    { label: "Box 2", path: "/esky" },
+    { label: "Box 3", path: "/meadowbank" },
+    { label: "Box 4", path: "/wharf" },
+    { label: "Box 5", path: "/maxine" },
+    { label: "Box 6", path: "/hill" },
   ];
 
   return (

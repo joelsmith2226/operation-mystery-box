@@ -88,3 +88,5 @@ export const Clue: React.FC<ClueProps> = ({boxNumber, clue}) => {
     </>
   );
 };
+
+export default Clue;

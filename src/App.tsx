@@ -1,7 +1,6 @@
 import { Box, createTheme } from "@mui/material";
 import React from "react";
 import {
-  BrowserRouter as Router,
   Route,
   Routes,
 } from "react-router-dom";
@@ -44,17 +43,15 @@ const Root = styled(Box)({
 export const App: React.FC<{}> = () => {
   return (
     <Root>   
-      <Router>
         <Routes>
-          <Route path="/operation-mystery-box" element={<ContentsPage />} />
-          <Route path="/operation-mystery-box/blackheath" element={<Box1Page />} />
-          <Route path="/operation-mystery-box/esky" element={<Box2Page />} />
-          <Route path="/operation-mystery-box/meadowbank" element={<Box3Page />} />
-          <Route path="/operation-mystery-box/wharf" element={<Box4Page />} />
-          <Route path="/operation-mystery-box/maxine" element={<Box5Page />} />
-          <Route path="/operation-mystery-box/hill" element={<Box6Page />} />
+          <Route path="" element={<ContentsPage />} />
+          <Route path="blackheath" element={<Box1Page />} />
+          <Route path="esky" element={<Box2Page />} />
+          <Route path="meadowbank" element={<Box3Page />} />
+          <Route path="wharf" element={<Box4Page />} />
+          <Route path="maxine" element={<Box5Page />} />
+          <Route path="hill" element={<Box6Page />} />
         </Routes>
-    </Router>
   </Root>
   );
 };

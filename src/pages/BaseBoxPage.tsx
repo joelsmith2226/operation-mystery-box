@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
-import BoxArt, { BoxArtProps } from "../components/BoxArt";
-import PhotoCollageGrid, { PhotoCollageProps } from "../components/PhotoCollageGrid";
+import React, { Suspense, useEffect, useState } from "react";
+// import BoxArt, { BoxArtProps } from "../components/BoxArt";
+// import PhotoCollageGrid, { PhotoCollageProps } from "../components/PhotoCollageGrid";
 import { Box, CircularProgress, styled, Typography } from "@mui/material";
-import { Clue, ClueProps } from "../components/Clue";
+// import { Clue, ClueProps } from "../components/Clue";
 import { TextBoxText } from "../components/TextBoxText";
 import Password from "../components/Password";
+import { BoxArtProps } from "../components/BoxArt";
+import { ClueProps } from "../components/Clue";
+import { PhotoCollageProps } from "../components/PhotoCollageGrid";
 
 const ScrollableContainer = styled(Box)`
   position: relative;
@@ -55,6 +58,27 @@ const LoadingBox = styled(Box)`
   align-items: center;
 `;
 
+const LoadingScreenFallback = () => (
+ <LoadingScreen>
+    <TextBoxText Text1={"Operation"} Text2={"Mystery Box"} />
+    <LoadingBox>
+      <Typography
+        style={{
+          fontFamily: "'Signika Negative', sans-serif",
+          padding: "8px",
+          fontSize: "4vw",
+        }}
+      >
+        Loading
+      </Typography>
+      <CircularProgress color="secondary" />
+    </LoadingBox>
+  </LoadingScreen>
+);
+const BoxArt = React.lazy(() => import("../components/BoxArt"));
+const PhotoCollageGrid = React.lazy(() => import("../components/PhotoCollageGrid"));
+const Clue = React.lazy(() => import("../components/Clue"));
+
 interface BaseBoxPageProps {
   boxArtProps: BoxArtProps;
   photoCollageProps: PhotoCollageProps;
@@ -67,7 +91,7 @@ export const BaseBoxPage: React.FC<BaseBoxPageProps> = ({
   clueProps,
 }) => {
   const [loading, setLoading] = useState(true);
-  const [passwordCorrect, setPasswordCorrect] = useState(false);
+  const [passwordCorrect, setPasswordCorrect] = useState(true);
 
   useEffect(() => {
     // Simulating a delay to show the loading screen
@@ -80,55 +104,35 @@ export const BaseBoxPage: React.FC<BaseBoxPageProps> = ({
     };
   }, []);
 
-  const handlePasswordCorrect = () => {
-    setPasswordCorrect(true);
+ const handlePasswordCorrect = () => {
+    setTimeout(() => {
+      setPasswordCorrect(true);
+    }, 2000); // Set minimum loading time in milliseconds
   };
 
   return (
-    <>
-      {loading ? (
-        <LoadingScreen>
-          <TextBoxText Text1={"Operation"} Text2={"Mystery Box"} />
-          <LoadingBox>
-            <Typography
-              style={{
-                fontFamily: "'Signika Negative', sans-serif",
-                padding: "8px",
-                fontSize: "4vw",
-              }}
-            >
-              Loading
-            </Typography>
-            <CircularProgress color="secondary" />
-          </LoadingBox>
-        </LoadingScreen>
-      ) : (
-        <>
-          {passwordCorrect ? (
-            <ScrollableContainer>
-              <BoxArt
-                fileName={boxArtProps.fileName}
-                bibleVerse={boxArtProps.bibleVerse}
-                boxName={boxArtProps.boxName}
-                boxNumber={boxArtProps.boxNumber}
+    <Suspense fallback={<LoadingScreenFallback />}>
+        {!loading ? (
+          <ScrollableContainer>
+            <BoxArt
+              fileName={boxArtProps.fileName}
+              bibleVerse={boxArtProps.bibleVerse}
+              boxName={boxArtProps.boxName}
+              boxNumber={boxArtProps.boxNumber}
+            />
+            <PhotoContainer>
+              <PhotoCollageGrid
+                directoryPath={photoCollageProps.directoryPath}
+                totalImages={photoCollageProps.totalImages}
+                bodyText={photoCollageProps.bodyText}
               />
-              <PhotoContainer>
-                <PhotoCollageGrid
-                  directoryPath={photoCollageProps.directoryPath}
-                  totalImages={photoCollageProps.totalImages}
-                  bodyText={photoCollageProps.bodyText}
-                />
-              </PhotoContainer>
-              <ClueContainer>
-                <Clue clue={clueProps.clue} boxNumber={clueProps.boxNumber} />
-              </ClueContainer>
-              <Spacer />
-            </ScrollableContainer>
-          ) : (
-            <Password onPasswordCorrect={handlePasswordCorrect} />
-          )}
-        </>
-      )}
-    </>
+            </PhotoContainer>
+            <ClueContainer>
+              <Clue clue={clueProps.clue} boxNumber={clueProps.boxNumber} />
+            </ClueContainer>
+            <Spacer />
+          </ScrollableContainer>
+        ) : (<LoadingScreenFallback/ >)};
+    </Suspense>
   );
 };
