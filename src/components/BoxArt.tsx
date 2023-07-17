@@ -53,7 +53,7 @@ const Overlay = styled(Typography)(
     width: "100%",
     overflow: "hidden",
     whiteSpace: "pre-wrap",
-    fontSize: "4vw", // Set an initial font size based on viewport width
+    fontSize: "4.8vw", // Set an initial font size based on viewport width
     fontFamily: "'Signika Negative', sans-serif",
 
     "@media (min-width: 600px)": {
@@ -151,10 +151,8 @@ const CustomDialogContent = styled(DialogContent)({
   alignItems: "center",
   justifyContent: "center",
   background: "transparent",
-  height: "50vh",
-  // width: "100vh",
-  border: "3px solid white",
-
+  height: "vh",
+  width: "75vw",
 });
 
 
@@ -162,18 +160,17 @@ const DialogImageContainer = styled("div")({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  width: "100%",
   height: "100%",
 });
 
 const DialogImage = styled("img")({
-  maxWidth: "100%",
-  maxHeight: "100%",
+  // maxWidth: "100%",
+  // maxHeight: "100%",
   objectFit: "contain",
 });
 export interface BoxArtProps {
   fileName: string;
-  bibleVerse: string;
+  bibleVerse: string[];
   boxName: string;
   boxNumber: string;
 }
@@ -235,8 +232,10 @@ const BoxArt: React.FC<BoxArtProps> = ({
 
       {showOverlay && (
         <Overlay showOverlay={showOverlay} variant="h4" color="white">
-          {bibleVerse}
-        </Overlay>
+          {bibleVerse.map((val) => (
+            <p>{val}</p>
+          ))}        
+          </Overlay>
       )}
       {showArrow && (
         <ScrollArrow showArrow={showArrow} onClick={handleScroll}>

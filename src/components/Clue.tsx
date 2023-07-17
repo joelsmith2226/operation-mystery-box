@@ -41,6 +41,7 @@ const BoxImg = styled("img")({
   borderRadius: "8px",
   zIndex: 9999,
   maxWidth: "40%",
+  objectFit: "contain", // Adjust to "contain" instead of "cover"
   animation: "pulse 2s infinite",
   "@keyframes pulse": {
     "0%": {
@@ -58,6 +59,16 @@ const BoxImg = styled("img")({
   },
   cursor: "pointer",
 });
+
+const ScaledDialogContent = styled(DialogContent)({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  maxWidth: "100%",
+  overflowX: "hidden",
+});
+
 export interface ClueProps  {
   boxNumber: string;
   clue: JSX.Element;
@@ -81,9 +92,9 @@ export const Clue: React.FC<ClueProps> = ({boxNumber, clue}) => {
         <ClueComp>Clue</ClueComp>
       </OverlayContainer>
       <Dialog open={openDialog} onClose={handleClose}>
-        <DialogContent>
+        <ScaledDialogContent>
           {clue}
-        </DialogContent>
+        </ScaledDialogContent>
       </Dialog>
     </>
   );

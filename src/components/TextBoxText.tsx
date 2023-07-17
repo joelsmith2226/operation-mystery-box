@@ -27,7 +27,7 @@ const BoxImg = styled("img")({
   zIndex: 9999,
   maxWidth: "40%",
   animation: "pulse 2s infinite",
-  objectFit: "cover", // Maintain aspect ratio and crop if necessary
+  objectFit: "contain", // Adjust to "contain" instead of "cover"
 
   "@keyframes pulse": {
     "0%": {

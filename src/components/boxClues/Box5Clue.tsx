@@ -11,8 +11,8 @@ import img4 from "../../assets/BOX5/sounds/moulinRouge.jpeg";
 
 const ImageButton = styled(Button)(({ isPlaying }: { isPlaying: boolean }) => ({
   opacity: isPlaying ? 1 : 0.5,
-  width: "20vh",
-  height: "20vh",
+  width: "25vw",
+  height: "25vw",
   borderRadius: "8px",
   boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
   transition: "opacity 0.3s ease-in-out",

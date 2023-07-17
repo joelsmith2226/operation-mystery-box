@@ -3,17 +3,17 @@ import { Box, Button, Icon, IconButton, styled, Typography } from "@mui/material
 import { ArrowCircleDown } from "@mui/icons-material";
 
 const ScrollableContainer = styled(Box)`
-  position: relative;
-  height: 100vh;
-  width: 50vh;
+  width: 100%;
+  height: 100%;
+  // overflow: auto;
 `;
 
 const ContentContainer = styled(Box)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  padding: 16px;
+  gap: 20px;
+  padding: 20px;
 `;
 
 const Image = styled("img")`

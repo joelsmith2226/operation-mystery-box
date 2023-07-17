@@ -7,7 +7,7 @@ const StyledPaper = styled(Box)`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60px;
+  height: 3.5vh;
   width: 100%;
 `;
 
@@ -15,9 +15,9 @@ const StyledLetterPaper = styled(Paper)`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 48px;
-  width: 48px;
-  margin: 2px;
+  height: 4vh;
+  width: 4vh;
+  margin: 1.4px;
 `;
 
 const StyledTypography = styled(Typography)`
@@ -97,6 +97,20 @@ const  Wordle: React.FC = () => {
   return (
     <>
       <Grid container spacing={1}>
+         <Grid item xs={12}>
+          <StyledTextField
+            value={currentGuess}
+            onChange={handleGuessChange}
+            onKeyDown={handleEnterPress}
+            autoFocus
+            inputProps={{
+              maxLength: 5,
+            }}
+          />
+          <Label>
+            Wordjoele (My best at a Wordle clone lol)
+          </Label>
+        </Grid>
         {Array(6).fill(null).map((_, rowIndex) => (
           <Grid item xs={12} key={rowIndex}>
             <StyledPaper>
@@ -125,20 +139,6 @@ const  Wordle: React.FC = () => {
             </StyledPaper>
           </Grid>
         ))}
-        <Grid item xs={12}>
-          <StyledTextField
-            value={currentGuess}
-            onChange={handleGuessChange}
-            onKeyDown={handleEnterPress}
-            autoFocus
-            inputProps={{
-              maxLength: 5,
-            }}
-          />
-          <Label>
-            Wordjoele (My best at a Wordle clone lol)
-          </Label>
-        </Grid>
       </Grid>
       <Snackbar
         open={errorSnackbarOpen}

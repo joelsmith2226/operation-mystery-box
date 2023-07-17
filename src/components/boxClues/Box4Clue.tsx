@@ -9,7 +9,7 @@ import audioFile3 from "../../assets/BOX4/sounds/Squeek.mp3";
 
 const EmojiButton = styled(Button)(({ isPlaying }: { isPlaying: boolean }) => ({
   opacity: isPlaying ? 1 : 0.5,
-  width: "20vh",
+  width: "10vw",
   transition: "opacity 0.3s ease-in-out",
   "&:hover": {
     opacity: 1,
@@ -19,8 +19,8 @@ const EmojiButton = styled(Button)(({ isPlaying }: { isPlaying: boolean }) => ({
 const StyledBox = styled(Box)(`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-  padding: 16px;
+  gap: 15vw;
+  padding: 5vw;
   justify-items: center;
 `);
 
@@ -29,6 +29,13 @@ const Label = styled(Typography)`
   font-family: 'Signika Negative', sans-serif;
   text-align: center;
 `;
+
+const EmojiSize = styled(Typography)`
+  font-size: 20vw;
+  font-family: 'Signika Negative', sans-serif;
+  text-align: center;
+`;
+
 interface AudioButtonProps {
   emoji: string;
   audioFile: string;
@@ -69,7 +76,7 @@ const AudioButton: React.FC<AudioButtonProps> = ({ emoji, audioFile }) => {
   return (
     <>
       <EmojiButton key={renderKey} onClick={handleEmojiClick} isPlaying={isPlaying}>
-        <Typography variant="h1">{emoji}</Typography>
+        <EmojiSize variant="h1">{emoji}</EmojiSize>
       </EmojiButton>
       <audio
         ref={audioRef}

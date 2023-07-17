@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, IconButton, Typography } from "@mui/material";
+import { CameraAlt } from "@mui/icons-material";
 
-const PhotoCollage = styled(Grid)(({ opacity }: { opacity: number }) => ({
+const PhotoCollage = styled(Grid)(({ opacity, showAllPhotos }: { opacity: number, showAllPhotos: boolean }) => ({
   flexGrow: 1,
   height: "50vh", // Set the height to 50% of the viewport height
   marginRight: "auto", // Auto margin on the left side
   display: "flex",
   flexWrap: "wrap",
   justifyContent: "center",
-  opacity: opacity,
+  opacity: showAllPhotos ? 1 : opacity,
   zIndex: 2,
   transition: "opacity 0.3s ease-in-out",
 }));
@@ -77,6 +78,15 @@ const OverlayText = styled(Typography)({
   fontWeight: "bold",
 });
 
+const CameraButton = styled(IconButton)`
+  position: absolute;
+  bottom: 10vh;
+  right: 10vh;
+  color: white;
+  z-index: 3;
+  opacity: 0.2;
+`;
+
 export interface PhotoCollageProps {
   directoryPath: string; // Path to the directory containing the images
   totalImages: number; // Total number of images
@@ -93,9 +103,9 @@ const PhotoCollageGrid: React.FC<PhotoCollageProps> = ({
   );
 
   const [isLongPress, setIsLongPress] = useState(false);
+  const [showAllPhotos, setShowAllPhotos] = useState(false);
 
   const handleLongPress = (event: React.MouseEvent) => {
-    event.preventDefault();
     setIsLongPress(!isLongPress);
   };
 
@@ -103,13 +113,19 @@ const PhotoCollageGrid: React.FC<PhotoCollageProps> = ({
     setIsLongPress(false);
   };
 
+   const handleCameraButtonClick = () => {
+    setShowAllPhotos(!showAllPhotos);
+  };
+
+
   return (
     <Box style={{ zIndex: 2 }}>
       <PhotoCollage
         container
         opacity={isLongPress ? 1 : 0.64}
+        showAllPhotos={showAllPhotos}
         spacing={0}
-        onContextMenu={handleLongPress}
+        onDoubleClick={handleLongPress}
         onMouseUp={handleRelease}
         onMouseLeave={handleRelease}
       >
@@ -159,13 +175,16 @@ const PhotoCollageGrid: React.FC<PhotoCollageProps> = ({
           );
         })}
       </PhotoCollage>
-      <OverlayContainer opacity={isLongPress ? 0 : 1}>
+      <OverlayContainer opacity={isLongPress || showAllPhotos ? 0 : 1}>
         <OverlayText>
           {bodyText.map((val) => (
             <p>{val}</p>
           ))}
         </OverlayText>
       </OverlayContainer>
+       <CameraButton onClick={handleCameraButtonClick}>
+        <CameraAlt />
+      </CameraButton>
     </Box>
   );
 };
