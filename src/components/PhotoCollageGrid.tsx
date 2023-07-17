@@ -76,6 +76,9 @@ const OverlayText = styled(Typography)({
   color: "white",
   fontSize: "4vw",
   fontWeight: "bold",
+  "& p": {
+    fontFamily: "'Signika Negative', sans-serif",
+  },
 });
 
 const CameraButton = styled(IconButton)`

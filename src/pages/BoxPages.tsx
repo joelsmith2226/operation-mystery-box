@@ -8,6 +8,7 @@ import Wordle from "../components/boxClues/Box3Clue";
 import Box4Clue from "../components/boxClues/Box4Clue";
 import Box2Clue from "../components/boxClues/Box2Clue";
 import Box5Clue from "../components/boxClues/Box5Clue";
+import { Typography } from "@mui/material";
 
 export const Box1Page: React.FC<{}> = () => {
   const boxArtProps: BoxArtProps = {
@@ -23,7 +24,7 @@ export const Box1Page: React.FC<{}> = () => {
     totalImages: 20,
     bodyText: [
       "Well, the cat's out of the box now! I've learnt a few new tricks these past few months that I have done my best at hiding from you... I wonder how many of these you knew about 😅",
-      "Anyho, this is our first trip down memory lane: Blackheath. The first place where this boy became googly eyed over a certain meringue girl. From book shops to burger making buds, this was a time that I well and truly began full crushing over you",
+      "Anyho, today we are taking a trip down memory lane at our relationship! First stop: Blackheath. The first place where this boy became googly eyed over a certain meringue girl. From book shops to burger making buds, this was a time that I well and truly became full blown Jas-obsessed. (Also 1 Peter is what we read there together!).", "Here is an excerpt from my Blackheath notes before we move on: \"ended up driving to a lookout and it was freezing. We shared a few moments here. At the summit we were making banter about a hill or mound or mountain. But I just remember thinking, oh boy I'm nervous in front of you and don't know what to say. Her eyes kinda sparkled in the moonlight (oop cheesy).\""
     ],
   };
 
@@ -52,7 +53,7 @@ export const Box2Page: React.FC<{}> = () => {
   const photoCollageProps: PhotoCollageProps = {
     directoryPath: "BOX2",
     totalImages: 15,
-    bodyText: ["First time I asked you out"],
+    bodyText: ["A reflection I had re-reading over Ephesians 5 this morning was how we are to live out of reverance for Christ - both in marriage but in all of life. This is a prayer I have for us that we would continue to live for Him, being lights in the Lord; children of light!", "Returning to the boxes, I tried to capture my nervous energy within this carpark in the models. How glad I am now that you lingered outside your car! And that I eventually found the courage to stumble out the words \'would you like to grab coffee sometime?\'"],
   };
 
   const clueProps: ClueProps = {
@@ -80,7 +81,7 @@ export const Box3Page: React.FC<{}> = () => {
   const photoCollageProps: PhotoCollageProps = {
     directoryPath: "BOX3",
     totalImages: 20,
-    bodyText: ["First date"],
+    bodyText: ["\'Oh my gosh I love Isaiah 6!\' I chose this verse as a reminder that we need to be open to being sent - wherever that is - to share this life-changing news!", "Ah the first time you drank coffee politely because you didn't want to be rude. I would love to go back in time and watch my nervous energy as I panicked over how amazing you were and that you were there with me!", "This box also represents our son (spicy), Dustinho, who we also have spent a large chunk of time in Meadowbank with. Seeing you with him (although we don't compare!), makes me think about the future and other little ones that might come along, more on that later 😉"],
   };
 
   const clueProps: ClueProps = {
@@ -108,7 +109,7 @@ export const Box4Page: React.FC<{}> = () => {
   const photoCollageProps: PhotoCollageProps = {
     directoryPath: "BOX4",
     totalImages: 15,
-    bodyText: ["First timeline"],
+    bodyText: ["For the record, I wanted to put all of Romans 8 here, so good!!", "Now, this wharf might not be as memorable to you, but it was for me! This was our first timeline chat, where we were a few months into dating and we cranked it up a notch. This was where we discussed all things future with marriage and kids, and I remember being taken aback with how soon children might come into the picture! But pretty soon after some thought and prayer and introspection, I was onboard 🛳", "The future became real in that moment, and I realised you were the one I wanted to spend the rest of my life with"],
   };
   const clueProps: ClueProps = {
     clue: <Box4Clue />,
@@ -135,7 +136,7 @@ export const Box5Page: React.FC<{}> = () => {
   const photoCollageProps: PhotoCollageProps = {
     directoryPath: "BOX5",
     totalImages: 20,
-    bodyText: ["First kiss/I love you"],
+    bodyText: ["You are a Proverbs 31 woman! You fear the Lord and seek to serve Him in all that you do and are such an encouragement to me everyday. I am so blessed to have such a godly woman in my life and I thank God for you constantly ❤️", "Do not fear, I promised I wouldn't propose in Maxine haha. But we did share some signifant moments in here: This was our first kiss. This was where you told me you loved me. This is where we grew deeper in relationship in reading together, praying together, a small picture of the life to come in the next step.", "I can't wait to have a home with you, to be hospitable with you, to be intimate with you, to be the last thing you see at night and the first you see in the morning."],
   };
 
   const clueProps: ClueProps = {
@@ -155,7 +156,7 @@ export const Box5Page: React.FC<{}> = () => {
 export const Box6Page: React.FC<{}> = () => {
   const boxArtProps: BoxArtProps = {
     fileName: "BOX6.gif",
-    bibleVerse: ["This is a verse from 1 PETER"],
+    bibleVerse: ["Brothers and sisters, I do not consider myself yet to have taken hold of it. But one thing I do: Forgetting what is behind and straining toward what is ahead, I press on toward the goal to win the prize for which God has called me heavenward in Christ Jesus", "Phillipians 3:13-14"],
     boxName: "Hill",
     boxNumber: "Box 6",
   };
@@ -166,7 +167,7 @@ export const Box6Page: React.FC<{}> = () => {
     bodyText: ["nice"],
   };
   const clueProps: ClueProps = {
-    clue: <Box1Clue />,
+    clue: <Typography>Can't wait to marry you, my JT</Typography>,
     boxNumber: "Box 7?",
   }
 
