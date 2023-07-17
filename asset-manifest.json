@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/operation-mystery-box/static/css/main.bab1cc96.css",
-    "main.js": "/operation-mystery-box/static/js/main.27183daf.js",
+    "main.js": "/operation-mystery-box/static/js/main.cd031e8d.js",
     "static/js/764.5218c4d8.chunk.js": "/operation-mystery-box/static/js/764.5218c4d8.chunk.js",
     "static/js/91.3011ff35.chunk.js": "/operation-mystery-box/static/js/91.3011ff35.chunk.js",
-    "static/js/984.204bcc5e.chunk.js": "/operation-mystery-box/static/js/984.204bcc5e.chunk.js",
+    "static/js/984.77d32d49.chunk.js": "/operation-mystery-box/static/js/984.77d32d49.chunk.js",
     "static/js/787.585ad7ce.chunk.js": "/operation-mystery-box/static/js/787.585ad7ce.chunk.js",
     "static/media/circles2.zip": "/operation-mystery-box/static/media/circles2.5240a060fe9dada0e8a7.zip",
     "static/media/BOX4.gif": "/operation-mystery-box/static/media/BOX4.b3f046ba4156ca3e50d5.gif",
@@ -74,14 +74,14 @@
     "index.html": "/operation-mystery-box/index.html",
     "static/media/imgNameRewriter.py": "/operation-mystery-box/static/media/imgNameRewriter.2a4224f1fcb3c98a4fa1.py",
     "main.bab1cc96.css.map": "/operation-mystery-box/static/css/main.bab1cc96.css.map",
-    "main.27183daf.js.map": "/operation-mystery-box/static/js/main.27183daf.js.map",
+    "main.cd031e8d.js.map": "/operation-mystery-box/static/js/main.cd031e8d.js.map",
     "764.5218c4d8.chunk.js.map": "/operation-mystery-box/static/js/764.5218c4d8.chunk.js.map",
     "91.3011ff35.chunk.js.map": "/operation-mystery-box/static/js/91.3011ff35.chunk.js.map",
-    "984.204bcc5e.chunk.js.map": "/operation-mystery-box/static/js/984.204bcc5e.chunk.js.map",
+    "984.77d32d49.chunk.js.map": "/operation-mystery-box/static/js/984.77d32d49.chunk.js.map",
     "787.585ad7ce.chunk.js.map": "/operation-mystery-box/static/js/787.585ad7ce.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bab1cc96.css",
-    "static/js/main.27183daf.js"
+    "static/js/main.cd031e8d.js"
   ]
 }
