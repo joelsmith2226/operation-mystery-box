@@ -40,7 +40,8 @@ const BoxImg = styled("img")({
   border: "solid white 2px",
   borderRadius: "8px",
   zIndex: 9999,
-  maxWidth: "40%",
+  maxWidth: "30vw",
+  maxHeight: "30vw",
   objectFit: "contain", // Adjust to "contain" instead of "cover"
   animation: "pulse 2s infinite",
   "@keyframes pulse": {

@@ -136,7 +136,7 @@ export const Box5Page: React.FC<{}> = () => {
   const photoCollageProps: PhotoCollageProps = {
     directoryPath: "BOX5",
     totalImages: 20,
-    bodyText: ["You are a Proverbs 31 woman! You fear the Lord and seek to serve Him in all that you do and are such an encouragement to me everyday. I am so blessed to have such a godly woman in my life and I thank God for you constantly ❤️", "Do not fear, I promised I wouldn't propose in Maxine haha. But we did share some signifant moments in here: This was our first kiss. This was where you told me you loved me. This is where we grew deeper in relationship in reading together, praying together, a small picture of the life to come in the next step.", "I can't wait to have a home with you, to be hospitable with you, to be intimate with you, to be the last thing you see at night and the first you see in the morning."],
+    bodyText: ["You are a Proverbs 31 woman! You fear the Lord and seek to serve Him in all that you do and are such an encouragement to me everyday. I am so blessed to have such a godly woman in my life and I thank God for you constantly ❤️", "Do not fear, I promised I wouldn't propose in Maxine haha. But we did share some signifant moments in here: This was our first kiss. This was where you told me you loved me. This is where we grew deeper in relationship in reading together, praying together, a small picture of the life to come in the next step.", "I can't wait to have a home with you, to be hospitable with you, to be intimate with you, to serve the Lord with you, to be the last thing you see at night and the first you see in the morning."],
   };
 
   const clueProps: ClueProps = {

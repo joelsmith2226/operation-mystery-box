@@ -17,8 +17,8 @@ const ContentContainer = styled(Box)`
 `;
 
 const Image = styled("img")`
-  max-width: 100%;
-  height: 30%;
+  max-width: 80vw;
+  max-height: 30vh;
 `;
 
 const ClueText = styled(Typography)({

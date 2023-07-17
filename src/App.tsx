@@ -44,7 +44,7 @@ export const App: React.FC<{}> = () => {
   return (
     <Root>   
         <Routes>
-          <Route path="" element={<ContentsPage />} />
+          {/* <Route path="contents" element={<ContentsPage />} /> */}
           <Route path="blackheath" element={<Box1Page />} />
           <Route path="esky" element={<Box2Page />} />
           <Route path="meadowbank" element={<Box3Page />} />
